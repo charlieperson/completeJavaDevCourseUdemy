@@ -19,28 +19,12 @@ public class Main {
                 break;
         }
 
-        char switchChar = 'D';
+        char switchChar = 'B';
 
         switch(switchChar) {
-            case 'A':
-                System.out.println("BIG A");
-                break;
 
-            case 'B':
-                System.out.println("BIG B");
-                break;
-
-
-            case 'C':
-                System.out.println("BIG C");
-                break;
-
-            case 'D':
-                System.out.println("BIG D");
-                break;
-
-            case 'E':
-                System.out.println("BIG E");
+            case 'A': case 'B': case 'C': case 'D': case 'E':
+                System.out.println(switchChar + " was found");
                 break;
 
             default:
