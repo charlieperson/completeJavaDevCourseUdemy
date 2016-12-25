@@ -11,6 +11,10 @@ public class Account {
         this(0, 0.0, "Default Name", "Default email", "000");
     }
 
+    public Account(String customerName, String email, String phoneNumber) {
+        this(0, 5.0, customerName, email, phoneNumber);
+    }
+
     public Account(int accountNumber, double balance, String customerName, String email, String phoneNumber) {
         this.accountNumber = accountNumber;
         this.balance = balance;
