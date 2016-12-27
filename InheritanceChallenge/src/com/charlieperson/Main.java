@@ -7,5 +7,6 @@ public class Main {
         redBeauty.drive(50);
         redBeauty.handSteer();
         redBeauty.changeGears();
+        redBeauty.fourWheelDrive();
     }
 }

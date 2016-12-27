@@ -10,5 +10,9 @@ public class Ferrari extends Car {
         this.butterflyDoors = butterflyDoors;
     }
 
+    public void fourWheelDrive() {
+        System.out.println("Ferrari.fourWheelDrive called.");
+    }
+
 
 }
