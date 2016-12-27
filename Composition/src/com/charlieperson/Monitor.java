@@ -1,8 +1,5 @@
 package com.charlieperson;
 
-/**
- * Created by charlieperson on 12/26/16.
- */
 public class Monitor {
     private String model;
     private String manufacturer;
