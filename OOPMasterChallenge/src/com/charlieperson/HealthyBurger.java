@@ -2,6 +2,7 @@ package com.charlieperson;
 
 public class HealthyBurger extends Hamburger {
     private int numOfAddOns = 0;
+    private int basePrice = 10000;
 
     public HealthyBurger(String meat) {
         super("brown rye", meat);
@@ -15,6 +16,11 @@ public class HealthyBurger extends Hamburger {
             this.numOfAddOns += 1;
             return true;
         }
+    }
+
+    @Override
+    public int getTotal() {
+        return this.basePrice + calculateAddOns();
     }
 
     @Override
@@ -40,5 +46,10 @@ public class HealthyBurger extends Hamburger {
     @Override
     public void addCheese() {
         if(validateAddOn()) super.addCheese();
+    }
+
+    @Override
+    public int getBasePrice() {
+        return basePrice;
     }
 }
