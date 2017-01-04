@@ -1,26 +1,36 @@
 package com.charlieperson;
 
+
+import java.util.Scanner;
+
 public class Main {
 
+    private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        int[] myIntArray = new int[10];
-        myIntArray[4] = 60;
-        System.out.println(myIntArray[4]);
-        String[] myStringyCollection = {"Leonard", "Kim", "Alex", "Bridget", "Charlie", "Daniel", "Ellie", "Elenore"};
-        System.out.println(myStringyCollection[4]);
-
-        int[] forInt = new int[30];
-
-        for(int i=0; i<forInt.length; i++) {
-            forInt[i] = i * 1000;
+        int[] myValues = getIntegers(3);
+        for(int i=0; i<myValues.length; i++) {
+            System.out.println("Value: " + myValues[i] + " was typed in as input");
         }
-
-        printArray(forInt);
+        System.out.println("Average of the array is..... " + getAverage(myValues));
     }
 
-    public static void printArray(int[] array) {
+    public static double getAverage(int[] array) {
+        int sum = 0;
         for(int i=0; i<array.length; i++) {
-            System.out.println(i + " = " + array[i]);
+            sum += array[i];
         }
+        return (double) sum / (double) 1array.length;
+    }
+
+    public static int[] getIntegers(int number) {
+        System.out.println("Enter " + number + " integer values.\r");
+        int[] values = new int[number];
+
+        for(int i=0; i<values.length; i++) {
+            values[i] = scanner.nextInt();
+        }
+
+        return values;
     }
 }
