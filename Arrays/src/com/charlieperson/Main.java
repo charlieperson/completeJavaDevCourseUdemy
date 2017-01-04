@@ -15,8 +15,12 @@ public class Main {
             forInt[i] = i * 1000;
         }
 
-        for(int i=0; i<forInt.length; i++) {
-            System.out.println(i + " = " + forInt[i]);
+        printArray(forInt);
+    }
+
+    public static void printArray(int[] array) {
+        for(int i=0; i<array.length; i++) {
+            System.out.println(i + " = " + array[i]);
         }
     }
 }
