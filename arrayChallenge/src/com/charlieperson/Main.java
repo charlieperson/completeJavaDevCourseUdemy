@@ -7,7 +7,7 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int[] chucky = getIntegers(3);
+        int[] chucky = getIntegers(5);
         printArray(sortArray(chucky));
     }
 
