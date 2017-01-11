@@ -26,6 +26,12 @@ public class Main {
                 case 3:
                     removeContact();
                     break;
+                case 4:
+                    establishWhichContactToModify();
+                    break;
+                case 5:
+                    quit = true;
+                    break;
             }
         }
     }
@@ -35,10 +41,9 @@ public class Main {
         System.out.println("\t 0 - To print choice options.");
         System.out.println("\t 1 - To print your contact list.");
         System.out.println("\t 2 - To add a contact.");
-        System.out.println("\t 3 - To modify a contact.");
-        System.out.println("\t 4 - To remove a contact.");
-        System.out.println("\t 5 - To search for a contact.");
-        System.out.println("\t 6 - To quit the application.");
+        System.out.println("\t 3 - To remove a contact.");
+        System.out.println("\t 4 - To modify a contact.");
+        System.out.println("\t 5 - To quit the application.");
     }
 
     public static void addContact() {
@@ -59,5 +64,47 @@ public class Main {
         scanner.nextLine();
         String name = scanner.nextLine();
         mobilePhone.removeContact(name);
+    }
+
+    public static void establishWhichContactToModify() {
+        System.out.println("Which contact would you like to modify?");
+        scanner.nextLine();
+        String name = scanner.nextLine();
+        if(isValidContact(name)){
+            System.out.println("Okay. Would you like to modify " + name + "'s name or number?");
+            String nameOrNumber = chooseNameOrNumber();
+            modifyContact(name, nameOrNumber);
+        } else {
+            System.out.println("Sorry- that's not a valid contact.");
+        }
+    }
+
+    public static void modifyContact(String name, String nameOrNumber) {
+        System.out.println("Please enter the new " + nameOrNumber + " for " + name);
+        String newNameOrNumber = scanner.nextLine();
+        if(nameOrNumber.equals("name")) {
+            mobilePhone.updateName(name, newNameOrNumber);
+        } else {
+            mobilePhone.updateNumber(name, newNameOrNumber);
+        }
+    }
+
+    private static boolean isValidContact(String name) {
+        return mobilePhone.isValidContact(name);
+    }
+
+    private static String chooseNameOrNumber() {
+        boolean valid = false;
+        String nameOrNumber = "invalid";
+
+        while(!valid) {
+            nameOrNumber = scanner.nextLine();
+            if(nameOrNumber.equals("name") || nameOrNumber.equals("number")) {
+                valid = true;
+            } else {
+                System.out.println("Sorry... that's invalid. Please write either name or number. Try again.");
+            }
+        }
+        return nameOrNumber;
     }
 }

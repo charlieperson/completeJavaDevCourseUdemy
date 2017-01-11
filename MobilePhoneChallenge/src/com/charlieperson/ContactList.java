@@ -34,4 +34,16 @@ public class ContactList {
         }
         return index;
     }
+
+    public static boolean isValidContact(String name) {
+        return findContactIndex(name) != -1;
+    }
+
+    public static void updateName(String name, String newName) {
+        contacts.get(findContactIndex(name)).setName(newName);
+    }
+
+    public static void updateNumber(String name, String newNumber) {
+        contacts.get(findContactIndex(name)).setNumber(newNumber);
+    }
 }

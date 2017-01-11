@@ -2,9 +2,6 @@ package com.charlieperson;
 
 import java.util.ArrayList;
 
-/**
- * Created by charlieperson on 1/11/17.
- */
 public class MobilePhone {
     private ContactList contactList = new ContactList();
 
@@ -16,11 +13,19 @@ public class MobilePhone {
         ContactList.addContact(name, number);
     }
 
-    public void updateExistingContact(String oldName) {
-        System.out.println("Would you like to update this");
+    public void removeContact(String name) {
+        contactList.removeContact(name);
     }
 
-    public void removeContact(String name) {
-        ContactList.removeContact(name);
+    public boolean isValidContact(String name) {
+        return contactList.isValidContact(name);
+    }
+
+    public void updateName(String name, String newName) {
+        contactList.updateName(name, newName);
+    }
+
+    public void updateNumber(String name, String newNumber) {
+        contactList.updateNumber(name, newNumber);
     }
 }
