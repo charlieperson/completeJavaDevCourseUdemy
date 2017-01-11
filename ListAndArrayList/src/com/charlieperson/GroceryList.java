@@ -27,4 +27,14 @@ public class GroceryList {
         System.out.println(theItem + " has been removed.");
         groceryList.remove(position);
     }
+
+    public String findItem(String searchItem) {
+        int position = groceryList.indexOf(searchItem);
+        if(position != -1) {
+            System.out.println("That is item " + (position+1));
+            return groceryList.get(position);
+        }
+        System.out.println("That item is not in the grocery list...");
+        return "Not found";
+    }
 }
