@@ -19,4 +19,8 @@ public class MobilePhone {
     public void updateExistingContact(String oldName) {
         System.out.println("Would you like to update this");
     }
+
+    public void removeContact(String name) {
+        ContactList.removeContact(name);
+    }
 }

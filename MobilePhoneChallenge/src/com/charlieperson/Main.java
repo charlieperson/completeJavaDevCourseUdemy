@@ -23,6 +23,9 @@ public class Main {
                 case 2:
                     addContact();
                     break;
+                case 3:
+                    removeContact();
+                    break;
             }
         }
     }
@@ -39,7 +42,7 @@ public class Main {
     }
 
     public static void addContact() {
-        System.out.println("What's the name of the new contact?\n");
+        System.out.println("What's the name of the new contact?");
         scanner.nextLine();
         String name = scanner.nextLine();
         System.out.println("Number?");
@@ -49,5 +52,12 @@ public class Main {
 
     public static void displayContacts() {
         mobilePhone.viewContacts();
+    }
+
+    public static void removeContact() {
+        System.out.println("Which contact would you like to remove?");
+        scanner.nextLine();
+        String name = scanner.nextLine();
+        mobilePhone.removeContact(name);
     }
 }

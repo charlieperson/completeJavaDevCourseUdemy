@@ -1,8 +1,5 @@
 package com.charlieperson;
 
-/**
- * Created by charlieperson on 1/11/17.
- */
 public class Contact {
     private String name;
     private String number;
