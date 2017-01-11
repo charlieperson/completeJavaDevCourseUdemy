@@ -59,24 +59,23 @@ public class Main {
     }
 
     public static void modifyItem() {
-        System.out.println("Enter item number\n");
-        int itemNumber = scanner.nextInt();
-        scanner.nextLine();
+        System.out.println("Enter item you want to replace\n");
+        String oldItem = scanner.nextLine();
         System.out.println("Enter replacement item: ");
         String newItem = scanner.nextLine();
-        groceryList.modifyGroceryItem(itemNumber-1, newItem);
+        groceryList.modifyGroceryItem(oldItem, newItem);
     }
 
     public static void deleteItem() {
         System.out.println("Which item number would you like removed?\n");
-        int itemNumber = scanner.nextInt();
-        groceryList.removeGroceryItem(itemNumber-1);
+        String itemName = scanner.nextLine();
+        groceryList.removeGroceryItem(itemName);
     }
 
     public static void searchForItem() {
         System.out.println("Which item would you like to search for?\n");
         String item = scanner.nextLine();
-        if(groceryList.findItem(item) != null) {
+        if(groceryList.onfile(item)) {
             System.out.println("found item: " + groceryList.findItem(item));
         } else {
             System.out.println(item + " not found");
