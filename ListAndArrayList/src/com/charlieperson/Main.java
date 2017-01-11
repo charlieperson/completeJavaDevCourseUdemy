@@ -1,5 +1,6 @@
 package com.charlieperson;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -36,6 +37,9 @@ public class Main {
                     searchForItem();
                     break;
                 case 6:
+                    processArrayList();
+                    break;
+                case 7:
                     quit = true;
                     break;
             }
@@ -80,6 +84,15 @@ public class Main {
         } else {
             System.out.println(item + " not found");
         }
+    }
 
+    public static void processArrayList() {
+        ArrayList<String> newArray = new ArrayList<String>();
+        newArray.addAll(groceryList.getGroceryList());
+
+        ArrayList<String> nextArray = new ArrayList<String>(groceryList.getGroceryList());
+
+        String[] back2NormalArray = new String[groceryList.getGroceryList().size()];
+        back2NormalArray = groceryList.getGroceryList().toArray(back2NormalArray);
     }
 }

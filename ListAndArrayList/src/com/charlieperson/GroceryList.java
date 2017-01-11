@@ -3,8 +3,11 @@ package com.charlieperson;
 import java.util.ArrayList;
 
 public class GroceryList {
-    private int[] myNumbers;
     private ArrayList<String> groceryList = new ArrayList<String>();
+
+    public ArrayList<String> getGroceryList() {
+        return groceryList;
+    }
 
     public void addItem(String item) {
         groceryList.add(item);
