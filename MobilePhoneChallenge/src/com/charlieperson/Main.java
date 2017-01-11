@@ -30,6 +30,9 @@ public class Main {
                     establishWhichContactToModify();
                     break;
                 case 5:
+                    searchForContact();
+                    break;
+                case 6:
                     quit = true;
                     break;
             }
@@ -43,7 +46,8 @@ public class Main {
         System.out.println("\t 2 - To add a contact.");
         System.out.println("\t 3 - To remove a contact.");
         System.out.println("\t 4 - To modify a contact.");
-        System.out.println("\t 5 - To quit the application.");
+        System.out.println("\t 5 - Search for a contact.");
+        System.out.println("\t 6 - To quit the application.");
     }
 
     public static void addContact() {
@@ -86,6 +90,17 @@ public class Main {
             mobilePhone.updateName(name, newNameOrNumber);
         } else {
             mobilePhone.updateNumber(name, newNameOrNumber);
+        }
+    }
+
+    public static void searchForContact() {
+        System.out.println("What's the name of the contact you'd like to search for?");
+        scanner.nextLine();
+        String name = scanner.nextLine();
+        if(mobilePhone.searchForContact(name) != null) {
+            System.out.println(name + "'s number is " + mobilePhone.searchForContact(name));
+        } else {
+            System.out.println("Not a valid contact.");
         }
     }
 

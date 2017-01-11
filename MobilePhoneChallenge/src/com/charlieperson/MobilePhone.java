@@ -28,4 +28,8 @@ public class MobilePhone {
     public void updateNumber(String name, String newNumber) {
         contactList.updateNumber(name, newNumber);
     }
+
+    public String searchForContact(String name) {
+        return contactList.searchForContact(name);
+    }
 }

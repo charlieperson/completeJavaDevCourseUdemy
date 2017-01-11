@@ -46,4 +46,13 @@ public class ContactList {
     public static void updateNumber(String name, String newNumber) {
         contacts.get(findContactIndex(name)).setNumber(newNumber);
     }
+
+    public static String searchForContact(String name) {
+        if(isValidContact(name)) {
+            return contacts.get(findContactIndex(name)).getNumber();
+        } else {
+            System.out.println("Sorry buddy- not seeing him/her");
+            return null;
+        }
+    }
 }
