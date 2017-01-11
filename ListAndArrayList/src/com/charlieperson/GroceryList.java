@@ -31,10 +31,9 @@ public class GroceryList {
     public String findItem(String searchItem) {
         int position = groceryList.indexOf(searchItem);
         if(position != -1) {
-            System.out.println("That is item " + (position+1));
             return groceryList.get(position);
         }
         System.out.println("That item is not in the grocery list...");
-        return "Not found";
+        return null;
     }
 }
