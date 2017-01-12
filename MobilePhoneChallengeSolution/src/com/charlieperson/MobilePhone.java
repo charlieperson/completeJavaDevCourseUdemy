@@ -2,9 +2,6 @@ package com.charlieperson;
 
 import java.util.ArrayList;
 
-/**
- * Created by charlieperson on 1/11/17.
- */
 public class MobilePhone {
     private String myNumber;
     private ArrayList<Contact> myContacts;
@@ -26,12 +23,23 @@ public class MobilePhone {
     public boolean updateContact(Contact oldContact, Contact newContact) {
         int foundPosition = findContact(oldContact);
         if(foundPosition < 0) {
-            System.out.println("Old contact not found...");
+            System.out.println(oldContact.getName() + " not found...");
             return false;
         }
 
         this.myContacts.set(foundPosition, newContact);
         System.out.println(oldContact.getName() + " was replaced with " + newContact.getName());
+        return true;
+    }
+
+    public boolean removeContact(Contact contact) {
+        int foundPosition = findContact(contact);
+        if(foundPosition < 0) {
+            System.out.println(contact.getName() + " not found...");
+            return false;
+        }
+        this.myContacts.remove(foundPosition);
+        System.out.println(contact.getName() + " deleted successfully");
         return true;
     }
 
@@ -47,5 +55,28 @@ public class MobilePhone {
             }
         }
         return -1;
+    }
+
+    public String queryContact(Contact contact) {
+        if(findContact(contact) >= 0) {
+            return contact.getName();
+        }
+        return null;
+    }
+
+    public Contact queryContact(String name) {
+        int position = findContact(name);
+        if(position >= 0) {
+            return this.myContacts.get(position);
+        }
+        return null;
+    }
+
+    public void printContacts() {
+        System.out.println("Contact List: ");
+        for(int i=0; i<this.myContacts.size(); i++) {
+            Contact contact = this.myContacts.get(i);
+            System.out.println((i+1) + ": " + contact.getName() + "- " + contact.getPhoneNumber());
+        }
     }
 }
