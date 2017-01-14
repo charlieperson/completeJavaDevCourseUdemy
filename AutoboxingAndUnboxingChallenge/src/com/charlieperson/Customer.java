@@ -13,4 +13,8 @@ public class Customer {
     public void addTransaction(double amount) {
         this.transactions.add(amount);
     }
+
+    public String getName() {
+        return name;
+    }
 }

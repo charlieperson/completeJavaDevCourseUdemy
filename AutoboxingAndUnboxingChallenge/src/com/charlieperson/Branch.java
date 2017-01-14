@@ -1,6 +1,7 @@
 package com.charlieperson;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Branch {
     private ArrayList<Customer> customers = new ArrayList<Customer>();
@@ -8,20 +9,39 @@ public class Branch {
 
     public Branch(String name) {
         this.name = name;
+        System.out.println("New branch created!");
     }
 
-    public void addCustomer(String name, Double initialTransaction) {
-        Customer newCustomer = new Customer(name);
-        newCustomer.addTransaction(initialTransaction);
+    public boolean addCustomer(Customer customer) {
+        for (Iterator<Customer> i = this.customers.iterator(); i.hasNext();) {
+            if(i == customer) {
+                System.out.println("Customer already exists!");
+                return false;
+            }
+        }
+
+        this.customers.add(customer);
+        System.out.println("Customer added successfully!");
+        return true;
     }
 
     public boolean addTransaction(Customer customer, Double amount) {
         for(int i=0; i<this.customers.size(); i++) {
             if(this.customers.get(i) == customer) {
                 customer.addTransaction(amount);
+                System.out.println("Customer transaction added....");
                 return true;
             }
         }
+        System.out.println("Customer ain't in the system...");
         return false;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
     }
 }
