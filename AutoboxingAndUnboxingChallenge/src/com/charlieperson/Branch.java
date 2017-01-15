@@ -13,8 +13,8 @@ public class Branch {
     }
 
     public boolean addCustomer(Customer customer) {
-        for (Iterator<Customer> i = this.customers.iterator(); i.hasNext();) {
-            if(i == customer) {
+        for (int i=0; i<this.customers.size(); i++) {
+            if(this.customers.get(i) == customer) {
                 System.out.println("Customer already exists!");
                 return false;
             }

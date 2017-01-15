@@ -4,13 +4,12 @@ public class Main {
 
     public static void main(String[] args) {
 	    Bank bOfA = new Bank("Bank of America");
-	    Branch bitchAss = new Branch("bitchAss");
-	    bOfA.addBranch(bitchAss);
-		System.out.println(bOfA.getBranches());
+	    Branch moneyBags = new Branch("money bags");
+	    bOfA.addBranch(moneyBags);
+		System.out.println(bOfA.getBranches().get(0).getName());
 	    Customer charlie = new Customer("Charlie");
-		System.out.println(charlie.getName());
-	    bOfA.addCustomer(bitchAss, charlie);
-	    bitchAss.addCustomer(charlie);
-		System.out.println(bitchAss.getCustomers());
+	    bOfA.addCustomer(moneyBags, charlie);
+		moneyBags.addCustomer(charlie);
+		System.out.println(moneyBags.getCustomers().get(0).getName() + " has arrived!");
     }
 }

@@ -33,8 +33,9 @@ public class Bank {
     }
 
     public void addCustomer(Branch branch, Customer customer) {
-        for(Iterator<Branch> i = this.branches.iterator(); i.hasNext();) {
-            if(i == branch) {
+        for(int i =0; i<this.branches.size(); i++) {
+            System.out.println(i);
+            if(this.branches.get(i) == branch) {
                 if(branch.addCustomer(customer)) {
                     System.out.println(customer.getName() + " added successfully to " + branch.getName());
                 } else {
