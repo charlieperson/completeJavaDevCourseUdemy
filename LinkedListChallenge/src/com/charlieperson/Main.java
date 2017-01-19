@@ -72,6 +72,10 @@ public class Main {
 					}
 					break;
 				case 5:
+					System.out.println("Current song has been removed.");
+					listIterator.remove();
+					break;
+				case 6:
 					quit = true;
 					break;
 			}
@@ -84,6 +88,7 @@ public class Main {
 		System.out.println("2- play next song in queue");
 		System.out.println("3- play previous song");
 		System.out.println("4- replay current song");
-		System.out.println("5- stop listening");
+		System.out.println("5- remove current song");
+		System.out.println("6- stop listening");
 	}
 }
