@@ -2,6 +2,7 @@ package com.charlieperson;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public class Playlist {
     private LinkedList<Song> queue;
@@ -49,5 +50,9 @@ public class Playlist {
         for(int i=0; i<this.albums.size(); i++) {
             System.out.println((i+1) + ": " + this.albums.get(i).getTitle());
         }
+    }
+
+    public LinkedList<Song> getQueue() {
+        return queue;
     }
 }
