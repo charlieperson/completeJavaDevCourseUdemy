@@ -1,9 +1,6 @@
 package com.charlieperson;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.ListIterator;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -39,8 +36,6 @@ public class Main {
         albums.get(0).addToPlaylist("Get it now!", playlist);
         albums.get(1).addToPlaylist(3, playlist);
         albums.get(1).addToPlaylist("All night", playlist);
-        albums.get(1).addToPlaylist("Doesn't exist", playlist);
-        albums.get(1).addToPlaylist(13, playlist);
 
         play(playlist);
 
@@ -58,6 +53,8 @@ public class Main {
             System.out.println("Now playing " + listIterator.next().toString());
         }
 
+        printMenu();
+
         while(!quit) {
             int action = scanner.nextInt();
             scanner.nextLine();
@@ -69,27 +66,27 @@ public class Main {
                     break;
 
                 case 1:
-                    if(forward) {
-                        if(listIterator.hasPrevious()) {
+                    if (forward) {
+                        if (listIterator.hasPrevious()) {
                             listIterator.previous();
                         }
                         forward = false;
                     }
-                    if(listIterator.hasPrevious()) {
+                    if (listIterator.hasPrevious()) {
                         System.out.println("Now playing " + listIterator.previous().toString());
                     } else {
                         System.out.println("This is the beginning of this playlist.");
-                        forward = false;
+                        forward = true;
                     }
                     break;
                 case 2:
-                    if(!forward) {
-                        if(listIterator.hasNext()) {
+                    if (!forward) {
+                        if (listIterator.hasNext()) {
                             listIterator.next();
                         }
                         forward = true;
                     }
-                    if(listIterator.hasNext()) {
+                    if (listIterator.hasNext()) {
                         System.out.println("Now playing " + listIterator.next().toString());
                     } else {
                         System.out.println("You've reached the end of this playlist.");
@@ -97,17 +94,50 @@ public class Main {
                     }
                     break;
                 case 3:
+                    if(forward) {
+                        if(listIterator.hasPrevious()) {
+                            System.out.println("Replaying " + listIterator.previous().toString());
+                            forward = false;
+                        } else {
+                            System.out.println("We are at the start of the list");
+                        }
+                    } else {
+                        if(listIterator.hasNext()) {
+                            System.out.println("Replaying " + listIterator.next().toString());
+                            forward = true;
+                        } else {
+                            System.out.println("We are at the end of the list.");
+                        }
+                    }
                     break;
                 case 4:
-//                    printList(playlist);
+                    printList(playlist);
                     break;
                 case 5:
-//                    printMenu();
+                    printMenu();
                     break;
 
             }
-
-
         }
     }
+
+    public static void printMenu() {
+        System.out.println("0 - quit");
+        System.out.println("1 - play next song");
+        System.out.println("2 - play previous song");
+        System.out.println("3 - replay current song");
+        System.out.println("4 - print playlist");
+        System.out.println("5 - print available actions");
+    }
+
+    private static void printList(LinkedList<Song> playlist) {
+        Iterator<Song> iterator = playlist.iterator();
+        System.out.println("===============");
+        while(iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+        System.out.println("===============");
+    }
+
+
 }
