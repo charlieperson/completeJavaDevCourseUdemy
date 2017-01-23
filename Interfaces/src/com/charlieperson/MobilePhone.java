@@ -18,7 +18,7 @@ public class MobilePhone implements ITelephone{
     @Override
     public void dial(int phoneNumber) {
         if(isOn) {
-            System.out.println("Now ringing " + phoneNumber + " on Mobile PHone");
+            System.out.println("Now ringing " + phoneNumber + " on Mobile Phone");
         } else {
             System.out.println("Phone is switched off...");
         }
@@ -35,8 +35,10 @@ public class MobilePhone implements ITelephone{
     @Override
     public boolean callPhone(int phoneNumber) {
         if(phoneNumber == myNumber && isOn) {
+            System.out.println("Mobile phone ringing");
             isRinging = true;
         } else {
+            System.out.println("Mobile phone not on or number different.");
             isRinging = false;
         }
         return isRinging;
